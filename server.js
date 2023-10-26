@@ -8,12 +8,26 @@ require('dotenv').config();
 const apiRoutes         = require('./routes/api.js');
 const fccTestingRoutes  = require('./routes/fcctesting.js');
 const runner            = require('./test-runner');
+const mongoose          = require('mongoose');
 
 const app = express();
 
 app.use('/public', express.static(process.cwd() + '/public'));
 
 app.use(cors({origin: '*'})); //USED FOR FCC TESTING PURPOSES ONLY!
+
+// Connect to database
+// try {
+  // mongoose.connect(process.env.DB, { useNewUrlParser: true , useUnifiedTopology: true });
+  // console.log('Connected to database')
+// } catch (err) {console.log(err)};
+
+mongoose
+.connect(process.env.DB, {
+  useNewUrlParser: true, 
+  useUnifiedTopology: true })
+.then(() => console.log("Database connected"))
+.catch(err => console.log(err));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -49,7 +63,7 @@ const listener = app.listen(process.env.PORT || 3000, function () {
           console.log('Tests are not valid:');
           console.error(e);
       }
-    }, 1500);
+    }, 3500);
   }
 });
 
