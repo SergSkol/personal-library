@@ -55,8 +55,8 @@ module.exports = function (app) {
       let bookid = req.params.id;
       //json res format: {"_id": bookid, "title": book_title, "comments": [comment,comment,...]}
       try {
-        const book = await Book.find({_id: bookid});
-        res.send(book[0]);
+        const book = await Book.findOne({_id: bookid});
+        res.send(book);
       } catch (err) {
         res.send('no book exists');
       }
