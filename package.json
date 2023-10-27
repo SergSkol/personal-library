@@ -18,6 +18,9 @@
 		"mongoose": "^7.6.3",
 		"zombie": "^5.0.5"
 	},
+	"engines": {
+		"node": ">=16"
+	},
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/freeCodeCamp/boilerplate-project-library"
