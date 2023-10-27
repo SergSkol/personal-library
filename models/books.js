@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const bookSchema = new mongoose.Schema({
   title: {type: String, required: true},
   commentcount: {type: Number},
-  comments: [String]
+  comments: [{type: String, required: false}]
 });
 
 function set_commentcount(book) {

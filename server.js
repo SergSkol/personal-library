@@ -17,11 +17,6 @@ app.use('/public', express.static(process.cwd() + '/public'));
 app.use(cors({origin: '*'})); //USED FOR FCC TESTING PURPOSES ONLY!
 
 // Connect to database
-// try {
-  // mongoose.connect(process.env.DB, { useNewUrlParser: true , useUnifiedTopology: true });
-  // console.log('Connected to database')
-// } catch (err) {console.log(err)};
-
 mongoose
 .connect(process.env.DB, {
   useNewUrlParser: true, 
