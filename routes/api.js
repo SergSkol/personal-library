@@ -56,7 +56,7 @@ module.exports = function (app) {
       //json res format: {"_id": bookid, "title": book_title, "comments": [comment,comment,...]}
       try {
         const book = await Book.find({_id: bookid});
-        res.send(book);
+        res.send(book[0]);
       } catch (err) {
         res.send('no book exists');
       }

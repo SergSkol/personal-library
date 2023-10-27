@@ -95,9 +95,9 @@ suite('Functional Tests', function() {
         .get(endPoint+'/'+test_id)
         .end(function(err, res){
           assert.equal(res.status, 200);
-          assert.property(res.body[0], 'title');
-          assert.property(res.body[0], '_id');
-          assert.property(res.body[0], 'commentcount');
+          assert.property(res.body, 'title');
+          assert.property(res.body, '_id');
+          assert.property(res.body, 'commentcount');
           done();
         });
       });
